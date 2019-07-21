@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.reply {
+	border:2px solid lightgray;
+	padding:20px;
+}
+
+.reply, .reply-form, .reply-list {
+	margin-top:20px;
+	box-sizing:border-box;
+}
+
+.reply-form > form div {
+	text-align:center;
+}
+
+.reply-form > form textarea, .reply-list table textarea{
+	width:80%;
+	min-height:30px;
+}
+
+.reply-form > form input[type="submit"], .reply-list table input {
+	width:40;
+	height:40px;
+	transform:translateY(-40%);
+}
+
+.reply-list .not-exist {
+	text-align:center;
+}
+
+.reply-list tr .reply-edit-mode {
+	display:none;
+}
+
+.reply-list tr.edit-mode-visible .reply-edit-mode {
+	display:block;
+}
+
+.reply-list tr.edit-mode-visible .reply-read-mode {
+	display:none;
+}
+
+.reply-list .reply-btn a {
+	color:gray;
+	font-weight:bold;
+}
+
+.reply-list .reply-btn a:hover {
+	color:lightblue;
+	font-weight:normal;
+}
+
+.reply-list tr.other td.reply-btn a {
+	display:none;
+}

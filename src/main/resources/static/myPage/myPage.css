@@ -1,0 +1,25 @@
+.member-info-table table {
+	width:40%;
+	margin:30px auto;
+	border:none;
+}
+
+.member-info-table table th, .member-info-table table td {
+	border:2px solid lightgray;
+}
+
+.member-info-table table th {
+	font-weight:normal;
+	color:gray;
+}
+
+.member-info-table tr.password-form .password-change-form {
+	display:none;
+}
+
+.member-info-table tr.password-change-mode .password-change-form {
+	display:block;
+}
+.member-info-table tr.password-change-mode .not-password-change-mode {
+	display:none;
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.dao.MemberDao">
+	<select id="getMember" parameterType="map" resultMap="Member">
+		SELECT *
+		FROM member 
+		<if test="where__id == true">
+			WHERE id = #{id}
+		</if>
+		<if test="where__loginInfo == true">
+			WHERE loginId = #{loginId} AND loginPw = #{loginPw}
+		</if>
+		<if test="where__loginId == true">
+			WHERE loginId = #{loginId}
+		</if>
+	</select>
+	
+	<insert id="join">
+		INSERT INTO member
+		SET regDate = NOW(),
+		loginId = #{loginId},
+		loginPw = #{loginPw},
+		name = #{name}
+	</insert>
+	
+	<insert id="update" parameterType="map">
+		UPDATE member
+		<set>
+			<if test="name != null">name = #{name},</if>
+			<if test="newLoginPw != null">loginPw = #{newLoginPw},</if>
+		</set>
+		WHERE id = #{id}
+	</insert>
+	
+	<delete id="delete">
+		DELETE FROM member
+		WHERE id = #{id}
+	</delete>
+
+	<resultMap id="Member" type="com.example.demo.dto.Member">
+		<id property="id" column="id" />
+		<id property="regDate" column="regDate" />
+		<id property="loginId" column="loginId" />
+		<id property="loginPw" column="loginPw" />
+		<id property="name" column="name" />
+	</resultMap>
+</mapper>
