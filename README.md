@@ -6,6 +6,7 @@ first project
 - JAVA
 - jQuery
 - MySQL
+- MyBatis
 
 ### SKILLS
 - interceptor : login session management, wrong access
