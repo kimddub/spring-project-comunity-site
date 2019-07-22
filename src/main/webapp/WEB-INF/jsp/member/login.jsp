@@ -20,7 +20,7 @@
 				<input type="password" name="loginPw" placeholder="로그인 PW">
 			</div>
 			
-			<div>
+			<div class="member-form-btn">
 				<input type="submit" value="로그인">
 				<input type="button" onclick="history.back();" value="취소">
 			</div>

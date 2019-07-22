@@ -19,26 +19,29 @@
 <script src="/detail/detail.js"></script>
 
 <div class="article-detail table-common con">
+	<div class="article-writer cell">
+        <div class="writer-icon">
+        
+        </div>
+        <span>작성자</span>
+	</div>
+        
 	<table>
 		<colgroup>
 			<col width="80">
 		</colgroup>
 		<tbody>
-			<tr>
+			<tr class="article-title">
+				<td colspan="4"><c:out value="${article.title}" /></td>
+			</tr>
+			<tr class="article-info">
 				<th>ID</th>
 				<td><c:out value="${article.id}" /></td>
-			</tr>
-			<tr>
 				<th>날짜</th>
 				<td><c:out value="${article.regDate}" /></td>
 			</tr>
-			<tr>
-				<th>제목</th>
-				<td><c:out value="${article.title}" /></td>
-			</tr>
-			<tr>
-				<th>내용</th>
-				<td><c:out value="${article.body}" /></td>
+			<tr class="article-body">
+				<td colspan="4">${article.bodyForPrint}</td>
 			</tr>
 		</tbody>
 	</table>
@@ -63,39 +66,36 @@
 			</form>
 		</div>
 
-		<div class="reply-list">
-			<div class="table-common con">
+		<div class="reply-list table-common con"">
+			<table>
+				<colgroup>
+					<col width="80">
+					<col width="180">
+					<col>
+					<col width="150">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>등록날짜</th>
+						<th>내용</th>
+						<th>비고</th>
+					</tr>
+				</thead>
+				<tbody>
 
-				<table>
-					<colgroup>
-						<col width="80">
-						<col width="180">
-						<col>
-						<col width="100">
-					</colgroup>
-					<thead>
+					<%--
+					<c:forEach var="reply" items="${replies}">
 						<tr>
-							<th>ID</th>
-							<th>등록날짜</th>
-							<th>내용</th>
-							<th>비고</th>
+							<td><c:out value="${reply.id}" /></td>
+							<td><c:out value="${reply.regDate}" /></td>
+							<td><c:out value="${reply.body}" /></td>
+							<td></td>
 						</tr>
-					</thead>
-					<tbody>
-
-						<%--
-						<c:forEach var="reply" items="${replies}">
-							<tr>
-								<td><c:out value="${reply.id}" /></td>
-								<td><c:out value="${reply.regDate}" /></td>
-								<td><c:out value="${reply.body}" /></td>
-								<td></td>
-							</tr>
-						</c:forEach>
-						 --%>
-					</tbody>
-				</table>
-			</div>
+					</c:forEach>
+					 --%>
+				</tbody>
+			</table>
 		</div>
 </section>
 <%@ include file="../part/foot.jspf"%>

@@ -24,7 +24,7 @@
 				<input type="password" name="loginPw" placeholder="PW">
 			</div>
 			
-			<div>
+			<div class="member-form-btn">
 				<input type="submit" value="전송">
 				<input type="button" onclick="history.back();" value="취소">
 			</div>

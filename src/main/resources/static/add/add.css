@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.article-write {
+    border:2px solid lightgray;
+}
+
+.article-write > table {
+    border:none;
+}
+
+.article-write > table th, .article-write > table td {
+    border:none;
+}
+
+.article-write > table tr:not(:last-child) {
+    border-bottom:1px solid lightgray;
+}
+
+.article-write > table tr.article-title > td {
+    height:40px;
+    font-weight:bold;
+    font-size:1.2rem;
+}

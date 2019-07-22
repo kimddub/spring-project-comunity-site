@@ -1,5 +1,7 @@
 package com.example.demo.dto;
 
+import org.springframework.web.util.HtmlUtils;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

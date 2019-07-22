@@ -7,6 +7,7 @@
 
 <c:set var="pageTitle" value="게시물 리스트"/>
 <%@ include file="../part/head.jspf"%>
+<link rel="stylesheet" href="/list/list.css">
 
 <div class="con search-form">
 	<form action="./list" method="GET">
@@ -29,7 +30,7 @@
 </div>
 
 
-<div class="list-1 table-common con">
+<div class="table-common article-list con">
 	<table>
 		<colgroup>
 			<col width="80">

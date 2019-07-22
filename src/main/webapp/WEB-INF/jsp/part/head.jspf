@@ -12,6 +12,7 @@
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/app/app.js"></script>
+<script src="/lib/lib.js"></script>
 <script>
 
 	function Article__delete(id) {
@@ -35,7 +36,7 @@
 	<div class="con top-menu row">
 				
 			<div class="top-menu-2 cell-right">
-				<span class="article-menu-main">
+				<span class="article-menu article-menu-main">
 					<a href="../article/list">메인페이지</a>
 				</span>
 			</div>
@@ -44,8 +45,10 @@
 			
 			<!-- 세션이 없으면 -->
 			<c:if test="${!isLogined}">
-				<a href="../member/join">회원가입</a>
-				<a href="../member/login">로그인</a>
+				<span class="member-menu">
+					<a href="../member/join">회원가입</a>
+					<a href="../member/login">로그인</a>
+				</span>
 			</div>
 			<div class="top-menu-2 cell-right">
 			</c:if>
@@ -61,15 +64,16 @@
 					
 			</div>
 			<div class="top-menu-2 cell-right">
-			
-				<a href="../article/add">글 작성</a>
+				<span class="article-menu article-menu-auth">
+					<a href="../article/add">글 작성</a>
+				</span>
 			</c:if>
 			<!-- 세션이 있으면 -->
 
 		
 				<c:if test="${article != null && article.memberId == loginMemberId}">
 				
-				<span class="article-menu-auth">
+				<span class="article-menu article-menu-auth">
 					<a href="../article/modify?id=${article.id}">글 수정</a>
 					<a href="javascript:;" onclick="Article__delete(${article.id})">글 삭제</a>
 				</span>

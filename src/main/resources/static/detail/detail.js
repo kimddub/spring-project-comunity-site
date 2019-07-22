@@ -38,14 +38,14 @@ function Article__loadNewReplies() {
 				Article_drawReply(reply);
 			}
 			
-			setTimeout(Article__loadNewReplies, 100);
+			setTimeout(Article__loadNewReplies, 1000);
 		}
 	);
 }
 
 function Article_drawReply(reply) {
 	var id = reply.id;
-	var body = reply.body;
+	var body = filteringXSS(reply.body).replace(/(\n|\r\n)/g, '<br>');
 	var regDate = reply.regDate;
 	var memberId = reply.memberId;
 	
@@ -63,7 +63,7 @@ function Article_drawReply(reply) {
 				<div class="reply-read-mode">${body}</div>
 				<div class="reply-edit-mode">
 					<form onsubmit="Article__modifyReply(); return false;" method="POST">
-						<textarea name="body" >${body}</textarea>
+						<textarea name="body" >${reply.body}</textarea>
 						<input type="submit" value="수정">
 						<input type="button" onclick="Article__hideModifyReply(this);" value="취소">
 					</form>
@@ -139,35 +139,17 @@ function Article__deleteReply(el) {
 	$tr.remove();
 }
 
-var $editModeTr;
-
-function findEditModeTr() {
-
-	$editModeTr = $('tr.edit-mode-visible');
-
-	$editModeTr.find('textarea').focus();
-}
-
 $(function() {
 	$('.reply-form input[type="submit"]').click(Article__addReply);
 	
 	// input 창에서 키보드 눌림 이벤트 발생시 함수를 실행하도록 예약
-	$('.reply-form textarea').keydown(function(e) {
-	    // 만약 입력한 키코드가 13, 즉 엔터라면 함수를 실행한다.
-	    if ( e.keyCode == 13 ) {
-	    	Article__addReply();
-	    }
-	});
 	
-	// 댓글 입력창 엔터 실행 ! 
-	// 수정창 열렸을 때 $editModeTr에 객체가 들어감
-	/*
-	$editModeTr.keydown(function(e) {
-	    if ( e.keyCode == 13 ) {
-	    	Article__modifyReply();
-	    }
-	});
-	*/
+//	$('.reply-form textarea').keydown(function(e) {
+//	    // 만약 입력한 키코드가 13, 즉 엔터라면 함수를 실행한다.
+//	    if ( e.keyCode == 13 ) {
+//	    	Article__addReply();
+//	    }
+//	});
 	
 	Article__loadNewReplies();
 });

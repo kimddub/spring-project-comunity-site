@@ -8,8 +8,10 @@
 <c:set var="pageTitle" value="게시물 수정"/>
 <%@ include file="../part/head.jspf"%>
 
+<link rel="stylesheet" href="/modify/modify.css">
+
 <form action="./doModify" method="POST">
-	<div class="article-detail table-common con">
+	<div class="article-edit table-common con">
 		<table>
 			<colgroup>
 				<col width="80">

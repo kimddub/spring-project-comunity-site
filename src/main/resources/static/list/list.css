@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+.article-list table {
+    border:none;   
+    border-top:2px solid lightgray;
+    border-bottom:2px solid lightgray;
+}
+
+.article-list > table th, .article-list > table td {
+    border:none;
+}
+
+.article-list > table td {
+    border-bottom:1px solid lightgray;
+}
+
+.article-list > table thead {
+    border-bottom:2px solid lightgray;
+    background-color:#F5F5F5;
+} 
+
+.search-form {
+	margin-bottom:20px;
+}

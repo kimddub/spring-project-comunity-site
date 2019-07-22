@@ -8,10 +8,12 @@
 <c:set var="pageTitle" value="게시물 작성"/>
 <%@ include file="../part/head.jspf"%>
 
+<link rel="stylesheet" href="/add/add.css">
 <script src="/add/add.js"></script>
 
 <form action="./doAdd" onsubmit="formCheck(this); return false;" methfo="POST">
-	<div class="table-common con">
+
+	<div class="article-write table-common con">
 		<table>
 			<colgroup>
 				<col width="80">
@@ -25,7 +27,7 @@
 					</td>
 				</tr>
 				
-				<tr>
+				<tr class="article-body">
 					<th>내용</th>
 					<td>
 						<textarea name="body" placeholder="내용을 입력하세요"></textarea>
@@ -41,5 +43,6 @@
 			</tbody>
 		</table>
 	</div>
+	
 </form>
 <%@ include file="../part/foot.jspf"%>
